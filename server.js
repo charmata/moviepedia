@@ -1,6 +1,8 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 
+var db = require("./models");
+
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -15,6 +17,8 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
