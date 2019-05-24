@@ -17,8 +17,9 @@ module.exports = {
   production: {
     username: "root",
     password: null,
-    database: "database_production",
+    database: "moviepedia_db",
     host: "127.0.0.1",
-    dialect: "mysql"
+    dialect: "mysql",
+    use_env_variable: JAWSDB_URL
   }
 };
