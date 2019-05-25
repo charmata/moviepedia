@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-require("./routes")(app);
+require("./routes/page-routes")(app);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
