@@ -92,6 +92,19 @@ module.exports = app => {
         console.log(err);
       });
   });
+  app.delete("/api/review/:id", (req, res) => {
+    db.Review.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
   // Watchlist
   app.get("/api/watchlist/:id", (req, res) => {
     db.Watchlist.findOne({
@@ -121,6 +134,19 @@ module.exports = app => {
   });
   app.post("/api/watchlist", (req, res) => {
     db.Watchlist.create(req.body)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  app.delete("/api/watchlist/:id", (req, res) => {
+    db.Watchlist.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
       .then(data => {
         res.json(data);
       })
