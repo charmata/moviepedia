@@ -19,9 +19,17 @@ module.exports = (sequelize, DataTypes) => {
   Movie.associate = models => {
     // Delete all associations if a movie is ever deleted
     Movie.hasMany(models.Review, {
+      foreignKey: {
+        name: "movie_id",
+        allowNull: false
+      },
       onDelete: "cascade"
     });
     Movie.hasMany(models.Watchlist, {
+      foreignKey: {
+        name: "movie_id",
+        allowNull: false
+      },
       onDelete: "cascade"
     });
   };

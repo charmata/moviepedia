@@ -4,11 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   Watchlist.associate = models => {
     Watchlist.belongsTo(models.User, {
       foreignKey: {
+        name: "user_id",
         allowNull: false
       }
     });
     Watchlist.belongsTo(models.Movie, {
       foreignKey: {
+        name: "movie_id",
         allowNull: false
       }
     });
