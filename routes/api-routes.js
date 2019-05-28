@@ -56,4 +56,40 @@ module.exports = app => {
         console.log(err);
       });
   });
+  // Review
+  app.get("/api/review/:id", (req, res) => {
+    db.Review.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  app.put("/api/review/:id", (req, res) => {
+    db.Review.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  app.post("/api/review", (req, res) => {
+    db.Review.create(req.body)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 };
