@@ -92,4 +92,40 @@ module.exports = app => {
         console.log(err);
       });
   });
+  // Watchlist
+  app.get("/api/watchlist/:id", (req, res) => {
+    db.Watchlist.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  app.put("/api/watchlist/:id", (req, res) => {
+    db.Watchlist.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  app.post("/api/watchlist", (req, res) => {
+    db.Watchlist.create(req.body)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 };
