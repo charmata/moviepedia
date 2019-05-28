@@ -1,8 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
   var Movie = sequelize.define("Movie", {
-    name: DataTypes.STRING,
-    release_date: DataTypes.STRING,
-    rating: DataTypes.INTEGER
+    omdb_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3]
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    }
   });
+
+  Movie.associate = models => {
+    // Delete all associations if a movie is ever deleted
+    Movie.hasMany(models.Review, {
+      onDelete: "cascade"
+    });
+    Movie.hasMany(models.Watchlist, {
+      onDelete: "cascade"
+    });
+  };
+
   return Movie;
 };
