@@ -14,7 +14,8 @@ module.exports = app => {
   app.get("/api/movie/:id", (req, res) => {
     db.Movie.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        include: [db.Review]
       }
     })
       .then(data => {
@@ -37,7 +38,8 @@ module.exports = app => {
   app.get("/api/user/:id", (req, res) => {
     db.User.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        include: [db.Review, db.Watchlist]
       }
     })
       .then(data => {
