@@ -20,11 +20,13 @@ module.exports = (sequelize, DataTypes) => {
   Review.associate = models => {
     Review.belongsTo(models.User, {
       foreignKey: {
+        name: "user_id",
         allowNull: false
       }
     });
     Review.belongsTo(models.Movie, {
       foreignKey: {
+        name: "movie_id",
         allowNull: false
       }
     });
