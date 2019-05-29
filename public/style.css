@@ -20,11 +20,11 @@ h1 {
 
 .jumbotron {
   background-image: url("http://zigzorg.com/wp-content/uploads/2015/12/Collage-Movies-5-50p-768x512.jpg");
-  height: 25rem;
+  height: 20rem;
   display: flex;
   align-items: center;
 }
-.row {
+. {
   height: 1rem;
 }
 
@@ -37,8 +37,17 @@ h1 {
 }
 
 .card-body {
+  background-color: black;
+  color: white;
   height: 15rem;
 }
 .card-text {
   height: 7rem;
+}
+#height {
+  height: 5rem;
+}
+
+.embed-responsive-item {
+  width: 10rem;
 }
