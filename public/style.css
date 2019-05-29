@@ -24,9 +24,6 @@ h1 {
   display: flex;
   align-items: center;
 }
-. {
-  height: 1rem;
-}
 
 .card {
   display: flex;
@@ -50,4 +47,8 @@ h1 {
 
 .embed-responsive-item {
   width: 10rem;
+}
+
+.footer-copyright {
+  color: white;
 }
