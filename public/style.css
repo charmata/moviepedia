@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
   background-color: black;
+  width: 100%;
 }
 
 #brand-logo {
@@ -42,7 +43,7 @@ h1 {
 }
 
 .embed-responsive-item {
-  width: 10rem;
+  width: 100%;
 }
 
 .footer-copyright {
