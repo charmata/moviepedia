@@ -25,10 +25,6 @@ h1 {
   align-items: center;
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-}
 .card-img-top {
   height: 15rem;
 }
@@ -51,4 +47,8 @@ h1 {
 
 .footer-copyright {
   color: white;
+}
+
+#divheight2 {
+  height: 2rem;
 }
