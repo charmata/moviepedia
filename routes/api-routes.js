@@ -35,6 +35,20 @@ module.exports = app => {
       });
   });
   // User
+  app.get("/api/user", (req, res) => {
+    db.User.findOne({
+      where: {
+        name: req.query.name,
+        include: [db.Review, db.Watchlist]
+      }
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
   app.get("/api/user/:id", (req, res) => {
     db.User.findOne({
       where: {
