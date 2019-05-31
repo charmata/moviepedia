@@ -9,8 +9,11 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       $("#results").text(response.Title);
+      $("#plot").text(response.Plot);
+      $("#image").attr("src", response.Poster);
+      $("#rating").text(response.Ratings[1].Value);
       console.log(response);
-      //   var img = $("<img>").attr("src", response.sprites.front_default);
+
       //   $("#results").append(img);
     });
   });
