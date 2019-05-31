@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
   background-color: black;
+  color: white;
   width: 100%;
 }
 
@@ -20,7 +21,7 @@ h1 {
 }
 
 .jumbotron {
-  background-image: url("http://zigzorg.com/wp-content/uploads/2015/12/Collage-Movies-5-50p-768x512.jpg");
+  background-image: url("/img/jumbotron-background-small.jpg");
   height: 20rem;
   display: flex;
   align-items: center;
@@ -61,3 +62,6 @@ h1 {
   color: white;
 }
 
+.form-page {
+  text-align: center;
+}
