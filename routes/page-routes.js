@@ -7,7 +7,7 @@ module.exports = app => {
   app.get("/search", (req, res) => {
     res.render("search");
   });
-  app.get("/login", (req, res) => {
+  app.get("/signin", (req, res) => {
     res.render("login");
   });
   app.get("/signup", (req, res) => {
