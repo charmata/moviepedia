@@ -40,9 +40,9 @@ module.exports = app => {
   app.get("/api/user", (req, res) => {
     db.User.findOne({
       where: {
-        name: req.query.name,
-        include: [db.Review, db.Watchlist]
-      }
+        name: req.query.name
+      },
+      include: [db.Review, db.Watchlist]
     })
       .then(data => {
         res.json(data);
@@ -54,9 +54,9 @@ module.exports = app => {
   app.get("/api/user/:id", (req, res) => {
     db.User.findOne({
       where: {
-        id: req.params.id,
-        include: [db.Review, db.Watchlist]
-      }
+        id: req.params.id
+      },
+      include: [db.Review, db.Watchlist]
     })
       .then(data => {
         res.json(data);
