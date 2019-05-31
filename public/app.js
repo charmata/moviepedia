@@ -6,7 +6,9 @@ var login = () => {
       method: "GET"
     })
       .then(response => {
-        sessionStorage.setItem("name", name);
+        if (response.name) {
+          sessionStorage.setItem("name", response.name);
+        }
       })
       .catch(err => {
         console.log(err);
