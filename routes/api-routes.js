@@ -1,4 +1,6 @@
 var db = require("../models");
+var omdb = require("../controllers/omdb");
+var youtube = require("../controllers/youtube");
 
 module.exports = app => {
   // Movie
@@ -156,5 +158,22 @@ module.exports = app => {
       .catch(err => {
         console.log(err);
       });
+  });
+  // OMDB
+  app.get("/api/omdb", (req, res) => {
+    omdb.search(req.query.q, data => {
+      res.json(data);
+    });
+  });
+  app.get("/api/omdb/:id", (req, res) => {
+    omdb.id(req.params.id, data => {
+      res.json(data);
+    });
+  });
+  // YouTube
+  app.get("/api/youtube", (req, res) => {
+    youtube.search(req.query.q, data => {
+      res.json(data);
+    });
   });
 };
