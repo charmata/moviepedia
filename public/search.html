@@ -7,10 +7,9 @@
     <title>Search</title>
 
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
       integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
@@ -23,6 +22,7 @@
       crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="./app.js"></script>
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -65,13 +65,14 @@
  <div class="row">             <!-- Search form -->
  <div class="col-4"></div>
  <div class="col-4">
-    <input class="form-control" type="text" placeholder="Search" aria-label="Search"></div>
+    <input class="form-control" type="text" id="searchText" placeholder="Search" aria-label="Search"></div>
+    <input type="submit" value="Submit" id="submitBtn" />
 <div class="col-4"></div>
 </div>
 
 <div class="row">
     <div class="col-2"></div>
-    <div class="col-8"></div>
+    <div class="col-8" id="results"></div>
     <div class="col-2"></div>
     </div>
 </div>
