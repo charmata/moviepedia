@@ -45,10 +45,15 @@ module.exports = app => {
       include: [db.Review, db.Watchlist]
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.get("/api/user/:id", (req, res) => {

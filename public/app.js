@@ -1,6 +1,6 @@
 var login = () => {
   if ($("#login-form")) {
-    var name = $("#login-form #name");
+    var name = $("#login-form #name").val();
     $.ajax({
       url: `/api/user?name=${name}`,
       method: "GET"
@@ -8,10 +8,13 @@ var login = () => {
       .then(response => {
         if (response.name) {
           sessionStorage.setItem("name", response.name);
+          $("#login-form #name").val("");
+          window.location.href = "/";
         }
       })
       .catch(err => {
         console.log(err);
+        $("#login-form #name").val("");
       });
   }
 };
