@@ -21,7 +21,7 @@ h1 {
 }
 
 .jumbotron {
-  background-image: url("http://zigzorg.com/wp-content/uploads/2015/12/Collage-Movies-5-50p-768x512.jpg");
+  background-image: url("/img/jumbotron-background-small.jpg");
   height: 20rem;
   display: flex;
   align-items: center;
