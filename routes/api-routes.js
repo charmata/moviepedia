@@ -7,10 +7,15 @@ module.exports = app => {
   app.get("/api/movie", (req, res) => {
     db.Movie.findAll({})
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.get("/api/movie/:id", (req, res) => {
@@ -21,19 +26,29 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.post("/api/movie", (req, res) => {
     db.Movie.create(req.body)
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   // User
@@ -64,19 +79,29 @@ module.exports = app => {
       include: [db.Review, db.Watchlist]
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.post("/api/user", (req, res) => {
     db.User.create(req.body)
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   // Review
@@ -87,10 +112,15 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.put("/api/review/:id", (req, res) => {
@@ -100,19 +130,29 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.post("/api/review", (req, res) => {
     db.Review.create(req.body)
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.delete("/api/review/:id", (req, res) => {
@@ -122,10 +162,15 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   // Watchlist
@@ -136,19 +181,29 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.post("/api/watchlist", (req, res) => {
     db.Watchlist.create(req.body)
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   app.delete("/api/watchlist/:id", (req, res) => {
@@ -158,27 +213,44 @@ module.exports = app => {
       }
     })
       .then(data => {
-        res.json(data);
+        if (!data) {
+          res.status(404).end();
+        } else {
+          res.json(data);
+        }
       })
       .catch(err => {
         console.log(err);
+        res.status(500).end();
       });
   });
   // OMDB
   app.get("/api/omdb", (req, res) => {
     omdb.search(req.query.q, data => {
-      res.json(data);
+      if (!data) {
+        res.status(404).end();
+      } else {
+        res.json(data);
+      }
     });
   });
   app.get("/api/omdb/:id", (req, res) => {
     omdb.id(req.params.id, data => {
-      res.json(data);
+      if (!data) {
+        res.status(404).end();
+      } else {
+        res.json(data);
+      }
     });
   });
   // YouTube
   app.get("/api/youtube", (req, res) => {
     youtube.search(req.query.q, data => {
-      res.json(data);
+      if (!data) {
+        res.status(404).end();
+      } else {
+        res.json(data);
+      }
     });
   });
 };
