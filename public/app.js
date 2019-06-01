@@ -1,3 +1,50 @@
+var login = () => {
+  if ($("#login-form")) {
+    var name = $("#login-form #name").val();
+    $.ajax({
+      url: `/api/user?name=${name}`,
+      method: "GET"
+    })
+      .then(response => {
+        if (response.name) {
+          sessionStorage.setItem("name", response.name);
+          $("#login-form #name").val("");
+          window.location.href = "/";
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        $("#login-form #name").val("");
+      });
+  }
+};
+
+var register = () => {
+  if ($("#register-form")) {
+    var name = $("#register-form #name").val();
+    $.ajax({
+      url: `/api/user`,
+      data: { name: name },
+      method: "POST"
+    })
+      .then(response => {
+        if (response.name) {
+          sessionStorage.setItem("name", response.name);
+          $("#register-form #name").val("");
+          window.location.href = "/";
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        $("#register-form #name").val("");
+      });
+  }
+};
+
+var logout = () => {
+  sessionStorage.removeItem("name");
+};
+
 $(document).ready(function() {
   $("#submitBtn").click(function() {
     var results = $("#searchText")
@@ -16,6 +63,19 @@ $(document).ready(function() {
 
       //   $("#results").append(img);
     });
+  });
+
+  $(document).on("click", "#login-submit", e => {
+    e.preventDefault();
+    login();
+  });
+  $(document).on("click", "#register-submit", e => {
+    e.preventDefault();
+    register();
+  });
+  $(document).on("click", "nav li:last-child a", e => {
+    e.preventDefault();
+    logout();
   });
   // entering movie name
 
