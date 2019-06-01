@@ -19,6 +19,28 @@ var login = () => {
   }
 };
 
+var register = () => {
+  if ($("#register-form")) {
+    var name = $("#register-form #name").val();
+    $.ajax({
+      url: `/api/user`,
+      data: { name: name },
+      method: "POST"
+    })
+      .then(response => {
+        if (response.name) {
+          sessionStorage.setItem("name", response.name);
+          $("#register-form #name").val("");
+          window.location.href = "/";
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        $("#register-form #name").val("");
+      });
+  }
+};
+
 $(document).ready(function() {
   $("#submitBtn").click(function() {
     var results = $("#searchText")
@@ -42,6 +64,10 @@ $(document).ready(function() {
   $(document).on("click", "#login-submit", e => {
     e.preventDefault();
     login();
+  });
+  $(document).on("click", "#register-submit", e => {
+    e.preventDefault();
+    register();
   });
   // entering movie name
 
