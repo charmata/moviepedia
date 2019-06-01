@@ -27,18 +27,19 @@ h1 {
   align-items: center;
 }
 
-.card-img-top {
-  height: 15rem;
+.card {
+  padding: 0;
+  margin-left: 1rem;
 }
 
 .card-body {
   background-color: black;
   color: white;
-  height: 15rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-top: 1px solid;
 }
-.card-text {
-  height: 7rem;
-}
+
 #height {
   height: 5rem;
 }
@@ -52,7 +53,7 @@ h1 {
 }
 
 #result {
-  color: white'
+  color: white;
 }
 
 #divheight2 {
