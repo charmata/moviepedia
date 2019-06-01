@@ -32,6 +32,15 @@ h1 {
   margin-left: 1rem;
 }
 
+.card-img-top {
+  object-fit: cover;
+  height: 18rem;
+}
+#content .card-img-top {
+  object-fit: cover;
+  height: 20rem;
+}
+
 .card-body {
   background-color: black;
   color: white;
@@ -65,9 +74,4 @@ h1 {
 
 .form-page {
   text-align: center;
-}
-
-#content .card-img-top {
-  object-fit: cover;
-  height: 20rem;
 }
