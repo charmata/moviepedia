@@ -61,9 +61,14 @@ var movieSearch = () => {
             var card = $("<div>")
               .addClass("col-2 card mb-3")
               .attr("data-id", movie.imdbID);
-            var poster = $("<img>")
-              .addClass("card-img-top")
-              .attr("src", movie.Poster);
+            var poster = $("<img>").addClass("card-img-top");
+
+            if (movie.Poster === "N/A") {
+              poster.attr("src", "/img/poster.png");
+            } else {
+              poster.attr("src", movie.Poster);
+            }
+
             var body = $("<div>").addClass("card-body");
             var title = $("<h5>")
               .addClass("card-title")
