@@ -41,6 +41,10 @@ var register = () => {
   }
 };
 
+var logout = () => {
+  sessionStorage.removeItem("name");
+};
+
 $(document).ready(function() {
   $("#submitBtn").click(function() {
     var results = $("#searchText")
@@ -68,6 +72,10 @@ $(document).ready(function() {
   $(document).on("click", "#register-submit", e => {
     e.preventDefault();
     register();
+  });
+  $(document).on("click", "nav li:last-child a", e => {
+    e.preventDefault();
+    logout();
   });
   // entering movie name
 
