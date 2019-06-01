@@ -1,6 +1,8 @@
 body {
   margin: 0 auto;
   background-color: black;
+  color: white;
+  width: 100%;
 }
 
 #brand-logo {
@@ -19,26 +21,47 @@ h1 {
 }
 
 .jumbotron {
-  background-image: url("http://zigzorg.com/wp-content/uploads/2015/12/Collage-Movies-5-50p-768x512.jpg");
-  height: 25rem;
+  background-image: url("/img/jumbotron-background-small.jpg");
+  height: 20rem;
   display: flex;
   align-items: center;
 }
-.row {
-  height: 1rem;
-}
 
-.card {
-  display: flex;
-  justify-content: center;
-}
 .card-img-top {
   height: 15rem;
 }
 
 .card-body {
+  background-color: black;
+  color: white;
   height: 15rem;
 }
 .card-text {
   height: 7rem;
+}
+#height {
+  height: 5rem;
+}
+
+.embed-responsive-item {
+  width: 100%;
+}
+
+.footer-copyright {
+  color: white;
+}
+
+#result {
+  color: white'
+}
+
+#divheight2 {
+  height: 2rem;
+}
+#plot {
+  color: white;
+}
+
+.form-page {
+  text-align: center;
 }
